@@ -1,0 +1,21 @@
+Next steps:
+
+Follow up for trackers to Hl7 to add "unknown" concept to the following Base FHIR resources.
+ - AllergyIntolerance.clinicalStatus
+  - Condition.clinicalStatus
+  - DocumentReference.status
+  - Immunization.status
+  - Goal.lifecycleStatus
+Technical Corrections to US Core
+On CapabilityStatement Server page remove Provenance requirement from Medication, Location, Practitioner, PractitionerRole, and Organization
+In USCDI Table = change 'MedicationStatement' change to 'MedicationRequest'Remove MedicationStatement on guidance page.
+Clarify that Location/PractitionerRole are not being referenced by other resources intentionally as part of a tracker item.
+ Fix bullet 2 in medication list guidance to clarify in intent = 'order'  (should be sub-bulleted)
+ Add Write to DocRef QuickStart (removed from 3.1.0 in editing error)
+ Add explicit SHALL support search with status if status required to the guidance on the For Servers Requiring Status
+ Clarify text in clinical notes guidance on 'minimum required' to reference only the DocRef. and that the DiagnosticReport codes are strongly suggested but not required as id defined in the profile's bindings.
+
+
++
+
+PR#1 Fix: duplicate URL causes validation failure. #28

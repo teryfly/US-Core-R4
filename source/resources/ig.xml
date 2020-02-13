@@ -766,6 +766,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/us-base-patient"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="SearchParameter/us-core-diagnosticreport-date"/>
       </reference>
       <exampleBoolean value="false"/>
@@ -1507,6 +1513,11 @@
         <page>
           <nameUrl value="StructureDefinition-us-core-patient.html"/>
           <title value="StructureDefinition US Core Patient"/>
+          <generation value="generated"/>
+        </page>
+        <page>
+          <nameUrl value="StructureDefinition-us-base-patient.html"/>
+          <title value="StructureDefinition US Base Patient"/>
           <generation value="generated"/>
         </page>
         <page>

@@ -19,6 +19,7 @@
         "location-us-core-profile-spreadsheet.xml",
         "observation-us-core-pulse-oximetry-spreadsheet.xml",
         "patient-us-core-profile-spreadsheet.xml",
+        "patient-us-base-profile-spreadsheet.xml",
         "encounter-us-core-profile-spreadsheet.xml",
         "practitioner-us-core-profile-spreadsheet.xml",
         "allergyintolerance-us-core-profile-spreadsheet.xml",
@@ -229,6 +230,10 @@
         "StructureDefinition/us-core-patient": {
             "defns": "StructureDefinition-us-core-patient-definitions.html",
             "base": "StructureDefinition-us-core-patient.html"
+        },
+        "StructureDefinition/us-base-patient": {
+            "defns": "StructureDefinition-us-base-patient-definitions.html",
+            "base": "StructureDefinition-us-base-patient.html"
         },
         "Observation/serum-calcium": {
             "source": "serum-calcium.json",

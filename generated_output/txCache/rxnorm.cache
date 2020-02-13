@@ -15461,3 +15461,156 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "582620"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "206765"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Prinivil 10 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1187314"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Tylenol PM Pill",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "582620",
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "582620"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "filter" : [{
+        "property" : "TTY",
+        "op" : "in",
+        "value" : "SCD,SBD,GPCK,BPCK,SCDG,SBDG,SCDF,SBDF"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "582620",
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "filter" : [{
+        "property" : "TTY",
+        "op" : "in",
+        "value" : "SCD,SBD,GPCK,BPCK,SCDG,SBDG,SCDF,SBDF"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+v: {
+  "display" : "Nizatidine 15 MG/ML Oral Solution [Axid]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "206765",
+  "display" : "Lisinopril 10 MG Oral Tablet [Prinivil]"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Prinivil 10 MG Oral Tablet",
+  "severity" : "warning",
+  "error" : "The display \"Lisinopril 10 MG Oral Tablet [Prinivil]\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}206765 - should be one of [\"Prinivil 10 MG Oral Tablet\",\"Prinivil 10 MG Oral Tablet\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "206765"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "filter" : [{
+        "property" : "TTY",
+        "op" : "in",
+        "value" : "SCD,SBD,GPCK,BPCK,SCDG,SBDG,SCDF,SBDF"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Lisinopril 10 MG Oral Tablet [Prinivil]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "206765",
+  "display" : "Lisinopril 10 MG Oral Tablet [Prinivil]"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "filter" : [{
+        "property" : "TTY",
+        "op" : "in",
+        "value" : "SCD,SBD,GPCK,BPCK,SCDG,SBDG,SCDF,SBDF"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+v: {
+  "display" : "Prinivil 10 MG Oral Tablet",
+  "severity" : "warning",
+  "error" : "The display \"Lisinopril 10 MG Oral Tablet [Prinivil]\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}206765 - should be one of [\"Prinivil 10 MG Oral Tablet\",\"Prinivil 10 MG Oral Tablet\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1187314",
+  "display" : "Tylenol PM Pill"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Tylenol PM Pill",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

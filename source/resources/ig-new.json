@@ -766,6 +766,12 @@
     },
     {
       "reference" : {
+        "reference" : "StructureDefinition/us-base-patient"
+      },
+      "exampleBoolean" : false
+    },
+    {
+      "reference" : {
         "reference" : "SearchParameter/us-core-diagnosticreport-date"
       },
       "exampleBoolean" : false
@@ -1490,6 +1496,11 @@
         {
           "nameUrl" : "StructureDefinition-us-core-patient.html",
           "title" : "StructureDefinition US Core Patient",
+          "generation" : "generated"
+        },
+        {
+          "nameUrl" : "StructureDefinition-us-base-patient.html",
+          "title" : "StructureDefinition US Base Patient",
           "generation" : "generated"
         },
         {

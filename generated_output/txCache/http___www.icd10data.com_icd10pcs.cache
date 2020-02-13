@@ -31,3 +31,13 @@ v: {
   "error" : "The code system \"http://www.icd10data.com/icd10pcs\" is not known; The code provided (http://www.icd10data.com/icd10pcs#HZ30ZZZ) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.icd10data.com/icd10pcs",
+  "code" : "HZ30ZZZ"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.icd10data.com/icd10pcs\" is not known (encountered paired with code = \"HZ30ZZZ\"); The code provided (http://www.icd10data.com/icd10pcs#HZ30ZZZ) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
