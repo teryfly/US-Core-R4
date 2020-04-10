@@ -39,7 +39,7 @@ This IG focuses on access to a patient's medications.  It is therefore important
 
 #### Sources of a MedicationRequest
 
- Several sources may be used to create a MedicationRequest as is shown in Figure 2 below. The information may captured directly a system's medication orders or reported by a provider.  A patient or related person may also report the information (or provide some type of record) including "self-prescribed" orders.  For example, oftentimes the patient is the *only* source of information when the patient reports Cannabis or OTC medication use.
+ Several sources may be used to create a MedicationRequest as is shown in Figure 2 below. The information may captured directly a system's medication orders or reported by a provider.  A patient or related person may also report the information (or provide some type of record) including "self-prescribed" <mark>medications</mark> <del>orders</del>.  For example, often the patient is the *only* source of information when the patient reports Cannabis or OTC medication use.
 
 {% include img.html img="ArgoR4Meds_3.svg" caption="Figure 2: MedicationRequest Information Sources" %}
 
@@ -63,20 +63,32 @@ This IG focuses on access to a patient's medications.  It is therefore important
 
 1. A MedicationRequest resource query **SHALL** be all that is required.
    - See the General Guidance section for additional rules and expectations for [Servers Requiring Status].
-1. Only MedicationRequest resources with an `intent` of ‘order’
-1. The MedicationRequest **SHALL** include all medications directly derived from the system's orders.
-1. The MedicationRequest **SHALL** include all prescribed and "self-prescribed" medications reported by the Provider, Patient or Related Person.
+<del>1. Only MedicationRequest resources with an `intent` = 'orders'</del>
+1. <del>The MedicationRequest</del> **SHALL** include all <del>medications</del><mark>MedicationRequest resources with an `intent` = 'orders' <mark> representing authorized medication orders directly derived from the system's orders.</mark>
+1. <del>The MedicationRequest</del> **SHALL** include all prescribed and "self-prescribed" <mark>MedicationRequest resources with an `intent` = 'plan' <mark> representing medications reported by the Provider, Patient or Related Person.
   -  **SHALL** use `reported[x]` to indicate the MedicationRequest record was captured as a secondary "reported" record rather than an original primary source-of-truth record. It may also indicate the source of the report.
-  -  When recording "self-prescribed" medications **SHALL** use `intent` = "order"
-  -  When recording "self-prescribed" orders, **SHOULD** use the `requester` to indicate the Patient or RelatedPerson as the prescriber.
+  -  <del>When recording "self-prescribed" medications **SHALL** use `intent` = "order"</del>
+  -  When recording "self-prescribed" <mark>medications</mark><del>orders</del>, <mark markdown="1">**SHALL**</mark><del>**SHOULD**</del> use the `requester` to indicate the Patient or RelatedPerson as the prescriber.
 1. The `encounter` element **SHOULD** be supported.  Searching by context (i.e., for a given inpatient encounter) will return all medications ordered during that encounter, which can include both medications administered in hospital as well as prescribed or discharge medications, which are intended to be taken at home.
 1. The `category` and `encounter`  elements **MAY** be used together to get the intersection of medications for a given encounter (i.e., the context) that were administered during as an inpatient (i.e., the category).
 
 #### Get All Medications
 
-1. Get all medications for a patient by querying MedicationRequest using the `patient` search parameter and `intent` search parameter = "order".  See [MedicationRequest Quick Start] for further details.
+<div class="highlight-note" markdown="1">
+A couple of options to consider for searching for all meds...
 
-   `GET /MedicationRequest?patient=[id]&intent=order{&_include=MedicationRequest:medication}`
+1) search in Three parts:
+
+  1. provider part or parameters: `patient` = [id] , `intent` = 'order' same as is currently documented below
+  1. reported meds part A parameters: `patient` = [id] , `intent` = 'plan' and define a new searchparameter reportedBoolean = True
+  1.  reported meds part B parameters: `patient` = [id] , `intent` = 'plan' define a new searchparameter and use the `missing` modifier to get `reportedReference:missing` = False
+
+2) create a single custom query (e.g., `$get_all_meds` ) and define additional parameters that can be used with it:  `status` = "active", `encounter` = "[id]"
+</div>
+
+1. Get all medications for a patient by querying MedicationRequest using the `patient` search parameter and `intent` search parameter = "order" or "plan".  See [MedicationRequest Quick Start] for further details.
+
+   `GET /MedicationRequest?patient=[id]&intent=order,plan{&_include=MedicationRequest:medication}`
 
       {% include examplebutton_default.html example="get-all-meds" b_title = "Click Here to See 'Get All Medications' Example" %}
 
