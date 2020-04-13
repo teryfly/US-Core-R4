@@ -68,8 +68,7 @@ This IG focuses on access to a patient's medications.  It is therefore important
    1. <del>The MedicationRequest</del> **SHALL** include all <del>medications</del><mark>MedicationRequest resources with an `intent` = 'orders' <mark> representing authorized medication orders directly derived from the system's orders.</mark>
    1. <del>The MedicationRequest</del> **SHALL** include all prescribed and "self-prescribed" <mark>MedicationRequest resources with an `intent` = 'plan' representing reported medications.</mark>
       -  **SHALL** use `reported[x]` to indicate the MedicationRequest record was captured as a secondary "reported" record rather than an original primary source-of-truth record. It may also indicate the source of the report.
-
-     -  <del>When recording "self-prescribed" medications **SHALL** use `intent` = "order"</del>
+      -  <del>When recording "self-prescribed" medications **SHALL** use `intent` = "order"</del>
 
      -  When recording "self-prescribed" <mark>medications</mark><del>orders</del>, <mark markdown="1">**SHALL**</mark><del>**SHOULD**</del> use the `requester` to indicate the Patient or RelatedPerson as the prescriber.
 1. The `encounter` element **SHOULD** be supported.  Searching by context (i.e., for a given inpatient encounter) will return all medications ordered during that encounter, which can include both medications administered in hospital as well as prescribed or discharge medications, which are intended to be taken at home.
