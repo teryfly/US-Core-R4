@@ -61,32 +61,24 @@ This IG focuses on access to a patient's medications.  It is therefore important
 
 **Requirements to access "all medications" and "all *active* medications" for a patient:**
 
-1. A MedicationRequest resource query **SHALL** be all that is required.
-   - See the General Guidance section for additional rules and expectations for [Servers Requiring Status].
+1. A MedicationRequest resource query:
+   1.  **SHALL** be all that is required.
+      <del>- See the General Guidance section for additional rules and expectations for [Servers Requiring Status].</del>
 <del>1. Only MedicationRequest resources with an `intent` = 'orders'</del>
-1. <del>The MedicationRequest</del> **SHALL** include all <del>medications</del><mark>MedicationRequest resources with an `intent` = 'orders' <mark> representing authorized medication orders directly derived from the system's orders.</mark>
-1. <del>The MedicationRequest</del> **SHALL** include all prescribed and "self-prescribed" <mark>MedicationRequest resources with an `intent` = 'plan' <mark> representing medications reported by the Provider, Patient or Related Person.
-  -  **SHALL** use `reported[x]` to indicate the MedicationRequest record was captured as a secondary "reported" record rather than an original primary source-of-truth record. It may also indicate the source of the report.
-  -  <del>When recording "self-prescribed" medications **SHALL** use `intent` = "order"</del>
-  -  When recording "self-prescribed" <mark>medications</mark><del>orders</del>, <mark markdown="1">**SHALL**</mark><del>**SHOULD**</del> use the `requester` to indicate the Patient or RelatedPerson as the prescriber.
+   1. <del>The MedicationRequest</del> **SHALL** include all <del>medications</del><mark>MedicationRequest resources with an `intent` = 'orders' <mark> representing authorized medication orders directly derived from the system's orders.</mark>
+   1. <del>The MedicationRequest</del> **SHALL** include all prescribed and "self-prescribed" <mark>MedicationRequest resources with an `intent` = 'plan' representing reported medications.</mark>
+      -  **SHALL** use `reported[x]` to indicate the MedicationRequest record was captured as a secondary "reported" record rather than an original primary source-of-truth record. It may also indicate the source of the report.
+     -  <del>When recording "self-prescribed" medications **SHALL** use `intent` = "order"</del>
+     -  When recording "self-prescribed" <mark>medications</mark><del>orders</del>, <mark markdown="1">**SHALL**</mark><del>**SHOULD**</del> use the `requester` to indicate the Patient or RelatedPerson as the prescriber.
 1. The `encounter` element **SHOULD** be supported.  Searching by context (i.e., for a given inpatient encounter) will return all medications ordered during that encounter, which can include both medications administered in hospital as well as prescribed or discharge medications, which are intended to be taken at home.
 1. The `category` and `encounter`  elements **MAY** be used together to get the intersection of medications for a given encounter (i.e., the context) that were administered during as an inpatient (i.e., the category).
+1. <mark>See the General Guidance section for additional rules and expectations for [Servers Requiring Status].</mark>
 
 #### Get All Medications
 
-<div class="highlight-note" markdown="1">
-A couple of options to consider for searching for all meds...
+Note that the `intent` = "plan" applies not only to reported medications but also resources that represent provider plans.  Thus additional filtering to exclude provider plans may be required.
 
-1) search in Three parts:
-
-  1. provider part or parameters: `patient` = [id] , `intent` = 'order' same as is currently documented below
-  1. reported meds part A parameters: `patient` = [id] , `intent` = 'plan' and define a new searchparameter reportedBoolean = True
-  1.  reported meds part B parameters: `patient` = [id] , `intent` = 'plan' define a new searchparameter and use the `missing` modifier to get `reportedReference:missing` = False
-
-2) create a single custom query (e.g., `$get_all_meds` ) and define additional parameters that can be used with it:  `status` = "active", `encounter` = "[id]"
-</div>
-
-1. Get all medications for a patient by querying MedicationRequest using the `patient` search parameter and `intent` search parameter = "order" or "plan".  See [MedicationRequest Quick Start] for further details.
+1. Get all medications for a patient by querying MedicationRequest using the search parameters `patient` = [id] and `intent` = "order,plan".  See [MedicationRequest Quick Start] for further details.  Note that this query may include resources that represent provider plans which may need to be filtered out.
 
    `GET /MedicationRequest?patient=[id]&intent=order,plan{&_include=MedicationRequest:medication}`
 
@@ -94,17 +86,17 @@ A couple of options to consider for searching for all meds...
 
 #### Get All *Active* Medications
 
-1. Get all *active* medications for a patient by querying MedicationRequest using the `patient`,  and `intent` = "order" `status` = "active" search parameters.  See [MedicationRequest Quick Start] for further details.  Note that the client should also consider MedicationRequests with a status of "unknown" and whether to query those as well.
+1. Get all *active* medications for a patient by querying MedicationRequest using the `patient`,  and `intent` = "order,plan" `status` = "active" search parameters.  See [MedicationRequest Quick Start] for further details.  Note that the client should also consider MedicationRequests with a status of "unknown" and whether to query those as well.
 
-   `GET /MedicationRequest?patient=[id]&intent=order&status=active{&_include=MedicationRequest:medication}`
+   `GET /MedicationRequest?patient=[id]&intent=order,plan&status=active{&_include=MedicationRequest:medication}`
 
         {% include examplebutton_default.html example="get-all-active-meds" b_title = "Click Here to See 'Get All *Active* Medications' Example" %}
 
 #### Get All Medications for an Encounter
 
-1. Get “all medications” for an encounter by querying MedicationRequest using the `patient` and `encounter` and `intent` ="order" search parameters.  See [MedicationRequest Quick Start] for further details.
+1. Get “all medications” for an encounter by querying MedicationRequest using the `patient` and `encounter` and `intent` ="order,plan" search parameters.  See [MedicationRequest Quick Start] for further details.
 
-   `GET /MedicationRequest?patient=[id]&intent=order&encounter=[id]{&_include=MedicationRequest:medication}`
+   `GET /MedicationRequest?patient=[id]&intent=order,plan&encounter=[id]{&_include=MedicationRequest:medication}`
 
       {% include examplebutton_default.html example="get-all-enc-meds" b_title = "Click Here to See 'Get All Medications for an Encounter' Example" %}
 
