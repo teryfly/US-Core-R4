@@ -78,7 +78,7 @@ This IG focuses on access to a patient's medications.  It is therefore important
 
 #### Get All Medications
 
-Note that the `intent` = "plan" applies not only to reported medications but also resources that represent provider plans.  Thus additional filtering to exclude provider plans may be required.
+<mark>Note that the `intent` = "plan" applies not only to reported medications but also resources that represent provider plans.  Thus additional filtering to exclude provider plans may be required.</mark>
 
 1. Get all medications for a patient by querying MedicationRequest using the search parameters `patient` = [id] and `intent` = "order,plan".  See [MedicationRequest Quick Start] for further details.  Note that this query may include resources that represent provider plans which may need to be filtered out.
 
