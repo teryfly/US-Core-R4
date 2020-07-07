@@ -992,7 +992,7 @@
   "logging": [
     "progress"
   ],
-  "igtemplate-dir": "/Users/ehaas/Documents/FHIR/US-Core-R4/",
+  "template": "https://github.com/HL7China/ig-template-cn/",
   "fixed-business-version": "3.1.1",
   "defaults": {
     "DiagnosticReport": {
