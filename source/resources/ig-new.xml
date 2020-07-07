@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="hl7.fhir.us.core"/>
+  <id value="hl7fhir.cn.core"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
     <valueString value="/Users/ehaas/Documents/FHIR/US-Core-R4/source/resources"/>
   </extension>
@@ -16,8 +16,8 @@
   </extension>
   <url value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
   <version value="3.1.1"/>
-  <name value="USCore"/>
-  <title value="US Core"/>
+  <name value="CNCore"/>
+  <title value="中国核心指南"/>
   <status value="active"/>
   <publisher value="HL7 International - US Realm Steering Committee"/>
   <contact>
